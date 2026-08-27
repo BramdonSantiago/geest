@@ -9,6 +9,7 @@ import { useAddContact } from "../hooks/useAddContact";
 import { Modal } from "../../../components/ui/Modal/Modal";
 import ContactHeader from "../components/ContactHeader";
 import ContactForm from "../components/ContactForm/ContactForm";
+import ContactDiscardConfirmation from "../components/ContactDiscardConfirmation";
 import Toast from "../../../components/ui/Toast/Toast";
 import ContactDeleteConfirmation from "../components/ContactDeleteConfirmation"
 
@@ -26,12 +27,30 @@ const ContactsPage = () => {
   
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+
+  const [isDiscardModalOpen, setIsDiscardModalOpen] = useState(false);
+
    const handleOpenAddContact = () => {
     setIsAddContactOpen(true);
   };
 
   const handleCloseAddContact = () => {
+    if (hasUnsavedChanges) {
+      setIsDiscardModalOpen(true);
+      return;
+    }
     setIsAddContactOpen(false);
+  };
+
+  const handleConfirmDiscard = () => {
+    setIsDiscardModalOpen(false);
+    setIsAddContactOpen(false);
+    setHasUnsavedChanges(false);
+  };
+
+  const handleCancelDiscard = () => {
+    setIsDiscardModalOpen(false);
   };
 
   const handleContactAdded = () => {
@@ -131,9 +150,23 @@ const ContactsPage = () => {
               onSubmit={addContactFromForm}
               onSuccess={handleContactAdded}
               onCancel={handleCloseAddContact}
+              onDirtyChange={setHasUnsavedChanges}
             />
           </Modal>
         )}
+
+      {isDiscardModalOpen && (
+        <Modal
+            open={isDiscardModalOpen}
+            onClose={handleCancelDiscard}
+            title="Descartar cambios"
+          >
+            <ContactDiscardConfirmation
+              onConfirm={handleConfirmDiscard}
+              onCancel={handleCancelDiscard}
+            />
+        </Modal>
+      )}
 
         {contactToDelete && (
           <Modal

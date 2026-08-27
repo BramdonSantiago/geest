@@ -1,4 +1,6 @@
-import { Form, Formik } from "formik";
+import { useEffect } from 'react';
+
+import { Form, Formik, useFormikContext } from "formik";
 
 import type { ContactFormValues } from "../../types/ContactForm.types";
 import { contactFormSchema } from "../../schemas/contactForm.schema";
@@ -8,6 +10,7 @@ type ContactFormProps = {
   onSubmit: (values: ContactFormValues) => Promise<void>;
   onSuccess: () => void;
   onCancel: () => void;
+  onDirtyChange?: (dirty: boolean) => void;
 };
 
 const initialValues: ContactFormValues = {
@@ -17,10 +20,24 @@ const initialValues: ContactFormValues = {
   department: "",
 };
 
+const FormikDirtyState = ({
+onDirtyChange,
+  }: {
+    onDirtyChange?: (dirty: boolean) => void;
+  }) => {
+    const { dirty } = useFormikContext<ContactFormValues>();
+
+    useEffect(() => {
+      onDirtyChange?.(dirty);
+    }, [dirty, onDirtyChange]);
+    return null;
+};
+
 const ContactForm = ({
   onSubmit,
   onSuccess,
   onCancel,
+  onDirtyChange,
 }: ContactFormProps) => {
   return (
     <Formik
@@ -48,6 +65,7 @@ const ContactForm = ({
     >
       {({ isSubmitting, isValid, status }) => (
         <Form className="space-y-6">
+          <FormikDirtyState onDirtyChange={onDirtyChange} />
           <ContactFormFields />
 
           <p>

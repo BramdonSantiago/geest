@@ -172,6 +172,10 @@ label {
     }
   }
 
+  td {
+    text-wrap: nowrap;
+  }
+
   td[data-department] {
     span {
       display: inline-block;
