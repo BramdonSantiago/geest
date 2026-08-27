@@ -12,7 +12,7 @@ const ContactDiscardConfirmation: FC<ContactDiscardConfirmationProps> = ({
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-color-thin mb-4">
+        <p className="mb-4">
           Tienes cambios sin guardar.
         </p>
 
