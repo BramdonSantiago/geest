@@ -20,12 +20,12 @@ const ContactHeader = ({
                 <p className="text-color-thin">Administra y organiza tus contactos fácilmente</p>
             </div>
         </div>
-        <div>
-            <button onClick={onAddContact} type="button" className="btn btn--primary">
+        <div className="text-center">
+            <button onClick={onAddContact} type="button" className="btn btn--primary w-full md:w-auto">
                 <span class="material-symbols-outlined">add</span>
                 Agregar contacto
             </button>
-            <p class="mt-1"><span>{contactsCount}</span> contactos actualmente</p>
+            <p class="text-color-thin text-small mt-3"><span class="material-symbols-outlined">call</span><span>{contactsCount}</span> contactos actualmente</p>
         </div>
     </div>
   );

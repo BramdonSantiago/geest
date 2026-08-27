@@ -34,6 +34,7 @@ const ContactsPage = () => {
       contactsCount={contacts.length}
     />
     <div className="content-main-dash content-box">
+      <div className="content-box-border">
            {isLoading && (
         <ContactSkeleton />
       )}
@@ -90,6 +91,8 @@ const ContactsPage = () => {
           </Modal>
         )}
     </div>
+
+      </div>
 
     </>
   )

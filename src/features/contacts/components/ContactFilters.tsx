@@ -26,7 +26,7 @@ const ContactFilters = ({
   return (
     <div>
         <h3 className="mb-2"><span class="material-symbols-outlined">filter_alt</span>Filtros</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-12 gap-8 mb-4 border-b border-[#E5EAF0] pb-8">
             <div className="lg:col-span-4">
                 <div>
                     <label htmlFor="input-search">Buscar por nombre</label>
@@ -55,7 +55,7 @@ const ContactFilters = ({
             {search && (
                 <button onClick={() => onSearchChange("")} type="button" className="btn btn-primary--outline"><span class="material-symbols-outlined">delete</span>Limpiar búsqueda</button>
             )}
-            <p className="flex-1 text-end"><span class="material-symbols-outlined">diversity_3</span>{resultCount} resultados encontrados <span>(de {contactsCount} contactos)</span></p>
+            <p className="flex-1 text-end leading-[1]"><span class="material-symbols-outlined">diversity_3</span><span className="font-medium">{resultCount} resultados encontrados</span> <span className="text-color-thin text-small">(de {contactsCount} contactos)</span></p>
             </div>
         </div>
     </div>
