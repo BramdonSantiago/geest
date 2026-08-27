@@ -275,6 +275,19 @@ label {
   }
 }
 
+.search-bar {
+  position: relative;
+  input[type="search"] {
+    padding-left: 2rem;
+  }
+  .material-symbols-outlined {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+}
+
 
 .material-symbols-outlined {
   font-size: 16px;

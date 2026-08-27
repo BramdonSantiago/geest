@@ -30,7 +30,10 @@ const ContactFilters = ({
             <div className="lg:col-span-4">
                 <div>
                     <label htmlFor="input-search">Buscar por nombre</label>
-                    <input value={search} onChange={(event) => onSearchChange(event.target.value)} type="search" id="input-search" placeholder="Buscar contacto..." />
+                    <div className="search-bar">
+                        <span className="material-symbols-outlined">search</span>
+                        <input value={search} onChange={(event) => onSearchChange(event.target.value)} type="search" id="input-search" placeholder="Buscar contacto..." />
+                    </div>
                 </div>
             </div>
             <div className="lg:col-span-8">
