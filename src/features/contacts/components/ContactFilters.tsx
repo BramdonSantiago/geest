@@ -25,7 +25,7 @@ const ContactFilters = ({
 }: ContactFiltersProps) => {
   return (
     <div>
-        <h3 className="mb-2"><span class="material-symbols-outlined">filter_alt</span>Filtros</h3>
+        <h3 className="mb-4"><span class="material-symbols-outlined">filter_alt</span>Filtros</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-12 gap-8 mb-4 border-b border-[#E5EAF0] pb-8">
             <div className="lg:col-span-4">
                 <div>

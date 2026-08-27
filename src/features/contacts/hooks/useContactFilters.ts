@@ -10,7 +10,7 @@ export const useContactFilters = (contacts: Contact[]) => {
   const [search, setSearch] = useState("");
   const [department, setDepartment] = useState<Department | null>(null);
 
-  const debouncedSearch = useDebounce(search, 300);
+  const debouncedSearch = useDebounce(search, 1000);
 
   const filteredContacts = useMemo(() => {
     return filterContacts(contacts, {
