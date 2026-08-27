@@ -35,7 +35,8 @@ const ContactDiscardConfirmation: FC<ContactDiscardConfirmationProps> = ({
           onClick={onCancel}
           className="btn btn--primary"
         >
-          Seguir editando
+            <span className="material-symbols-outlined">edit</span>
+            Seguir editando
         </button>
       </div>
     </div>
