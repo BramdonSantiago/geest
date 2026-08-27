@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import EmptyState from "../../../components/ui/EmptyState";
 import ContactFilters from "../components/ContactFilters";
 import ContactSkeleton from "../components/ContactSkeleton";
@@ -9,9 +9,18 @@ import { useAddContact } from "../hooks/useAddContact";
 import { Modal } from "../../../components/ui/Modal/Modal";
 import ContactHeader from "../components/ContactHeader";
 import ContactForm from "../components/ContactForm/ContactForm"
+import Toast from "../../../components/ui/Toast/Toast";
 
 const ContactsPage = () => {
-  const [isAddContactOpen, setIsAddContactOpen] = useState(false)
+  const { contacts, isLoading, error, addContact, removeContact } = useContacts();
+
+  const { addContact: addContactFromForm, } = useAddContact(addContact);
+
+  const {search, department, resultCount, filteredContacts, hasActiveFilters, setSearch, setDepartment, clearFilters, } = useContactFilters(contacts);
+
+  const [isAddContactOpen, setIsAddContactOpen] = useState(false);
+
+  const [showToast, setShowToast] = useState(false);
 
    const handleOpenAddContact = () => {
     setIsAddContactOpen(true);
@@ -21,11 +30,24 @@ const ContactsPage = () => {
     setIsAddContactOpen(false);
   };
 
-  const { contacts, isLoading, error, addContact, removeContact } = useContacts();
+  const handleContactAdded = () => {
+    setIsAddContactOpen(false);
+    setShowToast(true);
+  };
 
-  const { addContact: addContactFromForm, } = useAddContact(addContact);
+    useEffect(() => {
+    if (!showToast) {
+      return;
+    }
 
-  const {search, department, resultCount, filteredContacts, hasActiveFilters, setSearch, setDepartment, clearFilters, } = useContactFilters(contacts);
+    const timeoutId = window.setTimeout(() => {
+      setShowToast(false);
+    }, 6000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [showToast]);
 
   return (
     <>
@@ -85,11 +107,18 @@ const ContactsPage = () => {
           >
             <ContactForm
               onSubmit={addContactFromForm}
-              onSuccess={handleCloseAddContact}
+              onSuccess={handleContactAdded}
               onCancel={handleCloseAddContact}
             />
           </Modal>
         )}
+
+        {showToast && (
+  <Toast
+    message="Contacto agregado"
+    onClose={() => setShowToast(false)}
+  />
+)}
     </div>
 
       </div>
