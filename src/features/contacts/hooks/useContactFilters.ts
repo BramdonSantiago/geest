@@ -1,26 +1,31 @@
 import { useMemo, useState } from "react";
+
+import { useDebounce } from "../../../hooks/useDebounce";
+import { filterContacts } from "../utils/contact.filters";
+
 import type { Contact } from "../types/Contact.types";
 import type { Department } from "../types/Department.types";
-import { filterContacts } from "../utils/contact.filters";
 
 export const useContactFilters = (contacts: Contact[]) => {
   const [search, setSearch] = useState("");
   const [department, setDepartment] = useState<Department | null>(null);
 
+  const debouncedSearch = useDebounce(search, 300);
+
   const filteredContacts = useMemo(() => {
     return filterContacts(contacts, {
-      search,
+      search: debouncedSearch,
       department,
     });
-  }, [contacts, search, department]);
+  }, [contacts, debouncedSearch, department]);
+
+  const hasActiveFilters =
+    search.trim().length > 0 || department !== null;
 
   const clearFilters = () => {
     setSearch("");
     setDepartment(null);
   };
-
-  const hasActiveFilters =
-    search.trim().length > 0 || department !== null;
 
   return {
     search,

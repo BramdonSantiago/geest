@@ -14,8 +14,10 @@ const ContactDeleteConfirmation = ({
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-color-thin mb-4">
-          ¿Estás seguro de que deseas eliminar a{" "}
+        <p className="mb-4">
+            <span className="text-color-thin">
+            ¿Estás seguro de que deseas eliminar a{" "}
+            </span>
           <span className="font-medium">
             {contact.name}
           </span>

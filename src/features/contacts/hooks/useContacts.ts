@@ -13,20 +13,27 @@ export const useContacts = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadContacts = async () => {
-      try {
-        setError(null);
+  const loadContacts = async () => {
+    const startTime = Date.now();
 
-        const data = await getContacts();
+    try {
+      setError(null);
 
-        setContacts(data);
-      } catch {
-        setError("No pudimos cargar los contactos.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
+      const data = await getContacts();
 
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(3000 - elapsedTime, 0);
+
+      await new Promise((resolve) => {
+        setTimeout(resolve, remainingTime);
+      });
+      setContacts(data);
+    } catch {
+      setError("No pudimos cargar los contactos.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
     loadContacts();
   }, []);
 
