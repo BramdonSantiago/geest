@@ -339,57 +339,6 @@ La dirección visual busca alejarse del patrón tradicional de un **dashboard em
 
 ---
 
-# 🚀 Instalación
-
-### Requisitos
-
-* Node.js
-* npm
-
-### Clonar el repositorio
-
-```bash
-git clone <URL-DEL-REPOSITORIO>
-```
-
-### Entrar al proyecto
-
-```bash
-cd <NOMBRE-DEL-PROYECTO>
-```
-
-### Instalar dependencias
-
-```bash
-npm install
-```
-
-### Iniciar el entorno de desarrollo
-
-```bash
-npm run dev
-```
-
-La aplicación estará disponible en la URL indicada por Vite.
-
----
-
-# 📦 Build de producción
-
-Para generar el build:
-
-```bash
-npm run build
-```
-
-Para visualizar localmente la versión de producción:
-
-```bash
-npm run preview
-```
-
----
-
 # 📱 Responsive
 
 La interfaz fue diseñada tomando como referencia:
