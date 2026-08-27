@@ -18,6 +18,7 @@ const Toast = ({ message, onClose }: ToastProps) => {
       aria-live="polite"
       className="fixed bottom-6 left-6 z-50 flex items-center gap-3 rounded-lg border border-[#E5EAF0] bg-white px-4 py-3 shadow-[0_8px_30px_rgba(23,32,51,0.08)]"
     >
+      <span class="material-symbols-outlined">check</span>
       <span className="text-sm font-medium text-[#172033]">
         {message}
       </span>

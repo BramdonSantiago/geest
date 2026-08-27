@@ -8,8 +8,9 @@ import { useContacts } from "../hooks/useContacts";
 import { useAddContact } from "../hooks/useAddContact";
 import { Modal } from "../../../components/ui/Modal/Modal";
 import ContactHeader from "../components/ContactHeader";
-import ContactForm from "../components/ContactForm/ContactForm"
+import ContactForm from "../components/ContactForm/ContactForm";
 import Toast from "../../../components/ui/Toast/Toast";
+import ContactDeleteConfirmation from "../components/ContactDeleteConfirmation"
 
 const ContactsPage = () => {
   const { contacts, isLoading, error, addContact, removeContact } = useContacts();
@@ -20,7 +21,10 @@ const ContactsPage = () => {
 
   const [isAddContactOpen, setIsAddContactOpen] = useState(false);
 
-  const [showToast, setShowToast] = useState(false);
+  
+  const [contactToDelete, setContactToDelete] = useState<Contact | null>(null);
+  
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
    const handleOpenAddContact = () => {
     setIsAddContactOpen(true);
@@ -32,22 +36,40 @@ const ContactsPage = () => {
 
   const handleContactAdded = () => {
     setIsAddContactOpen(false);
-    setShowToast(true);
+    setToastMessage("Contacto agregado");
   };
 
-    useEffect(() => {
-    if (!showToast) {
+  const handleRequestDelete = (contact: Contact) => {
+    setContactToDelete(contact);
+  };
+
+  const handleCancelDelete = () => {
+    setContactToDelete(null);
+  };
+
+  const handleConfirmDelete = () => {
+  if (!contactToDelete) {
+    return;
+  }
+
+  removeContact(contactToDelete.id);
+    setContactToDelete(null);
+    setToastMessage("Contacto eliminado");
+  };
+
+  useEffect(() => {
+    if (!toastMessage) {
       return;
     }
 
     const timeoutId = window.setTimeout(() => {
-      setShowToast(false);
-    }, 6000);
+      setToastMessage(null);
+    }, 3000);
 
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [showToast]);
+  }, [toastMessage]);
 
   return (
     <>
@@ -92,7 +114,7 @@ const ContactsPage = () => {
             ) : (
               <ContactTable
                 contacts={filteredContacts}
-                onDelete={removeContact}
+                onDelete={handleRequestDelete}
               />
             )}
           </>
@@ -113,12 +135,28 @@ const ContactsPage = () => {
           </Modal>
         )}
 
-        {showToast && (
-  <Toast
-    message="Contacto agregado"
-    onClose={() => setShowToast(false)}
-  />
-)}
+        {contactToDelete && (
+          <Modal
+            open={contactToDelete !== null}
+            onClose={handleCancelDelete}
+            title="Eliminar contacto"
+          >
+            {contactToDelete && (
+              <ContactDeleteConfirmation
+                contact={contactToDelete}
+                onConfirm={handleConfirmDelete}
+                onCancel={handleCancelDelete}
+              />
+            )}
+          </Modal>
+         )}
+
+         {toastMessage && (
+            <Toast
+              message={toastMessage}
+              onClose={() => setToastMessage(null)}
+            />
+          )}
     </div>
 
       </div>

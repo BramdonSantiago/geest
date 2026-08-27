@@ -12,7 +12,7 @@ const ContactHeader = ({
         <div className="flex items-center">
             <div>
                 <div className="logo-app">
-                    <span class="material-symbols-outlined">contact_phone</span>
+                    <span className="material-symbols-outlined">contact_phone</span>
                 </div>
                 </div>
                 <div>
@@ -25,7 +25,7 @@ const ContactHeader = ({
                 <span class="material-symbols-outlined">add</span>
                 Agregar contacto
             </button>
-            <p class="text-color-thin text-small mt-3"><span class="material-symbols-outlined">call</span><span>{contactsCount}</span> contactos actualmente</p>
+            <p className="text-color-thin text-small mt-3"><span className="material-symbols-outlined">call</span><span>{contactsCount}</span> contactos actualmente</p>
         </div>
     </div>
   );

@@ -13,7 +13,7 @@ const ContactRow = ({ contact, onDelete }: ContactRowProps) => {
         <td>{contact.phone}</td>
         <td data-department={contact.department}><span>{contact.department}</span></td>
         <td>
-            <button onClick={() => onDelete(contact.id)} type="button" aria-label={`Eliminar a ${contact.name}`} class="btn btn-secondary--outline">
+            <button onClick={() => onDelete(contact)} type="button" aria-label={`Eliminar a ${contact.name}`} class="btn btn-secondary--outline">
                 <span class="material-symbols-outlined">
                     delete
                 </span>
