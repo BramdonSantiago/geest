@@ -1,0 +1,279 @@
+@import "tailwindcss";
+
+:root {
+  --body: #FAFAFA;
+  --white: #FFF;
+  --text: #1C1B1F;
+  --text-thin: #6B7280;
+  --color-primary: #0066DF;
+  --color-error: #EB7987;
+  --border-color-gray: #D9D9D9;
+  --border-color-gray-2: #ececec;
+  --radius-8: 8px;
+  --radius-12: 12px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--body);
+  color: var(--text);
+  padding: 1rem;
+
+  @media(min-width: 768px) {
+    padding: 2rem
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.250rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+p,
+button,
+label,
+input,
+select,
+textarea {
+  font-size: 0.875rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+select {
+  border: 1px solid var(--border-color-gray);
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-8);
+  background-color: var(--body);
+  height: 35px;
+  padding: 0 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 2.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  font-weight: 500;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--white);
+
+    .material-symbols-outlined {
+      color: var(--white);
+    }
+  }
+
+  &.btn-primary--outline {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  &.btn-secondary--outline {
+    border-color: var(--border-color-gray);
+    color: var(--text);
+
+    .material-symbols-outlined {
+      color: var(--text);
+    }
+
+    &[aria-label*="Eliminar"] {
+      .material-symbols-outlined {
+        color: var(--color-error);
+      }
+    }
+
+  }
+
+  &.btn--filter {
+    border-color: var(--border-color-gray);
+    height: 35px;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.filter-active {
+      background-color: var(--color-primary);
+      color: var(--white);
+    }
+  }
+}
+
+.table-responsive {
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+  font-size: 0.875rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-color-gray-2);
+  border-radius: var(--radius-12);
+  overflow: hidden;
+
+  thead {
+    tr {
+      background-color: #F4F7FA;
+
+      th {
+        border-bottom: 1px solid var(--border-color-gray-2);
+        padding: 0.6rem;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border-bottom: 1px solid var(--border-color-gray-2);
+      }
+
+      &:last-child {
+        td {
+          border: 0;
+        }
+      }
+
+      td {
+        padding: 0.75rem;
+      }
+    }
+  }
+
+  td[data-department] {
+    span {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-weight: 500;
+      border-radius: var(--radius-8);
+      font-size: 0.75rem;
+    }
+  }
+
+  td[data-department="Ventas"] {
+    span {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+  }
+
+
+  td[data-department="Desarrollo"] {
+    span {
+      background-color: #ede9fe;
+      color: #6d28d9;
+    }
+  }
+
+  td[data-department="Marketing"] {
+    span {
+      background-color: #ffedd5;
+      color: #c2410c;
+    }
+  }
+
+  td[data-department="Soporte"] {
+    span {
+      background-color: #d1fae5;
+      color: #047857;
+    }
+  }
+
+}
+
+
+.content-box {
+  background-color: var(--white);
+  box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--radius-12);
+}
+
+.text-color-thin {
+  color: var(--text-thin);
+}
+
+.content-main-dash {
+  margin-top: 0.75rem;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.invalid-input {
+  margin-top: 5px;
+  color: var(--color-error);
+}
+
+.logo-app {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-8);
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .material-symbols-outlined {
+    font-size: 48px;
+    margin-right: 0;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 200,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+}
+
+
+.material-symbols-outlined {
+  font-size: 16px;
+  vertical-align: text-top;
+  line-height: 1.2;
+  margin-right: 10px;
+  color: var(--color-primary);
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24;
+}
