@@ -532,7 +532,7 @@ Y tendrás la aplicación ejecutándose en tu entorno local.
 
 # 👨‍💻 Autor
 
-**Bramdon**
+**Bramdon Santiago**
 
 Frontend Developer
 
