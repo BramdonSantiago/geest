@@ -312,12 +312,12 @@ La interfaz fue diseñada bajo una filosofía **minimalista, premium y orientada
 | Token          | Valor     |
 | -------------- | --------- |
 | Primary Blue   | `#0066DF` |
-| Background     | `#FFFFFF` |
+| Background     | `#FAFAFA` |
 | Subtle Surface | `#F4F7FA` |
-| Border         | `#E5EAF0` |
-| Primary Text   | `#172033` |
-| Secondary Text | `#667085` |
-| Error          | `#DC2626` |
+| Border         | `#D9D9D9` |
+| Primary Text   | `#1C1B1F` |
+| Secondary Text | `#6B7280` |
+| Error          | `#EB7987` |
 
 La dirección visual busca alejarse del patrón tradicional de un **dashboard empresarial genérico**, priorizando una experiencia más cercana a un producto SaaS moderno.
 
