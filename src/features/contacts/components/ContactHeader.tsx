@@ -1,6 +1,6 @@
 type ContactHeaderProps = {
   onAddContact: () => void;
-  contactCount: number;
+  contactsCount: number;
 };
 
 const ContactHeader = ({
@@ -22,7 +22,7 @@ const ContactHeader = ({
         </div>
         <div className="text-center">
             <button onClick={onAddContact} type="button" className="btn btn--primary w-full md:w-auto">
-                <span class="material-symbols-outlined">add</span>
+                <span className="material-symbols-outlined">add</span>
                 Agregar contacto
             </button>
             <p className="text-color-thin text-small mt-3"><span className="material-symbols-outlined">call</span><span>{contactsCount}</span> contactos actualmente</p>

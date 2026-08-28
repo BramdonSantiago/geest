@@ -11,7 +11,8 @@ import ContactHeader from "../components/ContactHeader";
 import ContactForm from "../components/ContactForm/ContactForm";
 import ContactDiscardConfirmation from "../components/ContactDiscardConfirmation";
 import Toast from "../../../components/ui/Toast/Toast";
-import ContactDeleteConfirmation from "../components/ContactDeleteConfirmation"
+import ContactDeleteConfirmation from "../components/ContactDeleteConfirmation";
+import type { Contact } from "../types/Contact.types";
 
 const ContactsPage = () => {
   const { contacts, isLoading, error, addContact, removeContact } = useContacts();

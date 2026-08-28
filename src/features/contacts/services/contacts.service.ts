@@ -2,13 +2,15 @@ import contactsData from "../../../data/data.json";
 
 import type { Contact } from "../types/Contact.types";
 
+const initialContacts = contactsData as Contact[];
+
 const STORAGE_KEY = "contacts";
 
 export const getContacts = async (): Promise<Contact[]> => {
   const storedContacts = localStorage.getItem(STORAGE_KEY);
 
   if (!storedContacts) {
-    return contactsData;
+    return initialContacts;
   }
 
   try {
@@ -18,9 +20,9 @@ export const getContacts = async (): Promise<Contact[]> => {
       return parsedContacts as Contact[];
     }
 
-    return contactsData;
+    return initialContacts;
   } catch {
-    return contactsData;
+    return initialContacts;
   }
 };
 

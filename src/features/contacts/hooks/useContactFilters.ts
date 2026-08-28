@@ -19,6 +19,8 @@ export const useContactFilters = (contacts: Contact[]) => {
     });
   }, [contacts, debouncedSearch, department]);
 
+  const resultCount = filteredContacts.length;
+
   const hasActiveFilters =
     search.trim().length > 0 || department !== null;
 
@@ -31,6 +33,7 @@ export const useContactFilters = (contacts: Contact[]) => {
     search,
     department,
     filteredContacts,
+    resultCount,
     hasActiveFilters,
     setSearch,
     setDepartment,

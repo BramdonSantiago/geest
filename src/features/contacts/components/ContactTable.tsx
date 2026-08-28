@@ -3,7 +3,7 @@ import ContactRow from "./ContactRow";
 
 type ContactTableProps = {
   contacts: Contact[];
-  onDelete: (id: string) => void;
+  onDelete: (contact: Contact) => void;
 };
 
 

@@ -97,7 +97,7 @@ const ContactForm = ({
               disabled={isSubmitting || !isValid}
               className="btn btn--primary"
             >
-                <span class="material-symbols-outlined">save</span>
+                <span className="material-symbols-outlined">save</span>
               {isSubmitting ? "Guardando..." : "Guardar contacto"}
             </button>
           </div>

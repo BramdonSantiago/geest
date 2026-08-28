@@ -2,7 +2,7 @@ import type { Contact } from "../types/Contact.types";
 
 type ContactRowProps = {
   contact: Contact;
-  onDelete: (id: string) => void;
+  onDelete: (contact: Contact) => void;
 };
 
 const ContactRow = ({ contact, onDelete }: ContactRowProps) => {
@@ -13,8 +13,8 @@ const ContactRow = ({ contact, onDelete }: ContactRowProps) => {
         <td>{contact.phone}</td>
         <td data-department={contact.department}><span>{contact.department}</span></td>
         <td>
-            <button onClick={() => onDelete(contact)} type="button" aria-label={`Eliminar a ${contact.name}`} class="btn btn-secondary--outline">
-                <span class="material-symbols-outlined">
+            <button onClick={() => onDelete(contact)} type="button" aria-label={`Eliminar a ${contact.name}`} className="btn btn-secondary--outline">
+                <span className="material-symbols-outlined">
                     delete
                 </span>
                 Eliminar contacto

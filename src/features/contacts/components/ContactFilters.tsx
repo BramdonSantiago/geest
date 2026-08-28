@@ -4,6 +4,7 @@ type ContactFiltersProps = {
   search: string;
   department: Department | null;
   resultCount: number;
+  contactsCount: number;
   onSearchChange: (value: string) => void;
   onDepartmentChange: (department: Department | null) => void;
 };
@@ -25,7 +26,7 @@ const ContactFilters = ({
 }: ContactFiltersProps) => {
   return (
     <div>
-        <h3 className="mb-4"><span class="material-symbols-outlined">filter_alt</span>Filtros</h3>
+        <h3 className="mb-4"><span className="material-symbols-outlined">filter_alt</span>Filtros</h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-12 gap-8 mb-4 border-b border-[#E5EAF0] pb-8">
             <div className="lg:col-span-4">
                 <div>
@@ -56,9 +57,9 @@ const ContactFilters = ({
         <div className="mb-4">
             <div className="flex justify-between items-center">
             {search && (
-                <button onClick={() => onSearchChange("")} type="button" className="btn btn-primary--outline"><span class="material-symbols-outlined">delete</span>Limpiar búsqueda</button>
+                <button onClick={() => onSearchChange("")} type="button" className="btn btn-primary--outline"><span className="material-symbols-outlined">delete</span>Limpiar búsqueda</button>
             )}
-            <p className="flex-1 text-end leading-[1]"><span class="material-symbols-outlined">diversity_3</span><span className="font-medium">{resultCount} resultados encontrados</span> <span className="text-color-thin text-small">(de {contactsCount} contactos)</span></p>
+            <p className="flex-1 text-end leading-[1]"><span className="material-symbols-outlined">diversity_3</span><span className="font-medium">{resultCount} resultados encontrados</span> <span className="text-color-thin text-small">(de {contactsCount} contactos)</span></p>
             </div>
         </div>
     </div>
