@@ -1,5 +1,3 @@
-Deployment URL: https://geest.netlify.app/
-
 <img src="https://drive.google.com/uc?export=view&id=16yyB3A8iEAjcjwsv1VIfLfMAnQrUxwPC" style="width: 100%;" />
 
 # Gestor de Contactos
@@ -531,6 +529,17 @@ npm run dev
 
 Y tendrás la aplicación ejecutándose en tu entorno local.
 
+---
+
+## 🚀 Demo
+
+Puedes probar la aplicación desplegada en Netlify:
+
+**[Ver proyecto en producción](https://geest.netlify.app)**
+
+> Aplicación desarrollada como prueba técnica Frontend, enfocada en gestión de contactos, filtrado, búsqueda, formularios, estados de UI y persistencia local.
+
+---
 
 # 👨‍💻 Autor
 
