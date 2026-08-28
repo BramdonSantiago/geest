@@ -531,13 +531,11 @@ Y tendrás la aplicación ejecutándose en tu entorno local.
 
 ---
 
-## 🚀 Demo
+# Geest — Contact Management
 
-Puedes probar la aplicación desplegada en Netlify:
+> Aplicación Frontend para gestión de contactos.
 
-**[Ver proyecto en producción](https://geest.netlify.app)**
-
-> Aplicación desarrollada como prueba técnica Frontend, enfocada en gestión de contactos, filtrado, búsqueda, formularios, estados de UI y persistencia local.
+**🌐 [Ver Demo en producción](https://geest.netlify.app/)**
 
 ---
 
