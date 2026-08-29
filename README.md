@@ -531,6 +531,22 @@ Y tendrás la aplicación ejecutándose en tu entorno local.
 
 ---
 
+## 🎨 Design System
+
+El proyecto está basado en un **Design System previamente definido en Figma**, utilizado como referencia para traducir decisiones de diseño a componentes funcionales en React.
+
+La implementación mantiene una relación directa entre:
+
+* **Design tokens** → estilos y variables utilizados en la interfaz.
+* **Componentes UI** → elementos reutilizables implementados en React.
+* **Estados e interacciones** → comportamiento consistente entre componentes.
+* **Responsive design** → adaptación de la interfaz a diferentes tamaños de pantalla.
+
+**→ [Explorar el Design System en Figma]([TU_URL_DE_FIGMA](https://www.figma.com/design/HeF8tvz3oNIiuX2KHEIg1X/Geest?node-id=0-1&t=GOWW2eUJsnQocfV8-1)**
+
+El objetivo fue no limitarse a replicar visualmente el diseño, sino **convertir sus principios y componentes en una arquitectura de UI reutilizable y mantenible**.
+
+
 # Geest — Contact Management
 
 > Aplicación Frontend para gestión de contactos.
