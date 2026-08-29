@@ -542,7 +542,7 @@ La implementación mantiene una relación directa entre:
 * **Estados e interacciones** → comportamiento consistente entre componentes.
 * **Responsive design** → adaptación de la interfaz a diferentes tamaños de pantalla.
 
-**→ [Explorar el Design System en Figma]([TU_URL_DE_FIGMA](https://www.figma.com/design/HeF8tvz3oNIiuX2KHEIg1X/Geest?node-id=0-1&t=GOWW2eUJsnQocfV8-1)**
+**→ [Explorar el Design System en Figma](https://www.figma.com/design/HeF8tvz3oNIiuX2KHEIg1X/Geest?node-id=0-1&t=GOWW2eUJsnQocfV8-1)**
 
 El objetivo fue no limitarse a replicar visualmente el diseño, sino **convertir sus principios y componentes en una arquitectura de UI reutilizable y mantenible**.
 
